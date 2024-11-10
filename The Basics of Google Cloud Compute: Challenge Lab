@@ -1,0 +1,19 @@
+Task 2. Create and attach a persistent disk to a Compute Engine instance
+
+export ZONE=[ZONE]
+
+gcloud compute instances create my-instance --zone $ZONE  --tags http-server
+
+gcloud compute disks create mydisk --size=200GB \
+--zone $ZONE
+
+gcloud compute instances attach-disk my-instance --disk mydisk --zone $ZONE
+
+
+Task 3. Install a NGINX web server
+
+sudo apt-get update
+
+sudo apt-get install -y nginx
+
+ps auwx | grep nginx
